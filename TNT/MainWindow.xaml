@@ -1,0 +1,68 @@
+﻿<Window x:Class="TNT.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TNT"
+        xmlns:tcpclient="clr-namespace:MossbauerLab.TinyTcpServer.Core.Client"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <materialDesign:ColorZone
+            Grid.Row="0"
+  Mode="Dark"
+  Padding="0">
+            <StackPanel Background="#333">
+                <DockPanel>
+                    <materialDesign:PopupBox
+                        Margin="0,0,10,0"
+      DockPanel.Dock="Right"
+      PlacementMode="BottomAndAlignRightEdges">
+                        <ListBox>
+                            <ListBoxItem>
+                                Hello World
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                Nice Popup
+                            </ListBoxItem>
+                            <ListBoxItem>
+                                Goodbye.
+                            </ListBoxItem>
+                        </ListBox>
+                    </materialDesign:PopupBox>
+                    <StackPanel
+      Orientation="Horizontal">
+                        <ToggleButton
+                            
+        Style="{DynamicResource MaterialDesignHamburgerToggleButton}"/>
+                       
+                    </StackPanel>
+                </DockPanel>
+            </StackPanel>
+        </materialDesign:ColorZone>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Width="40"  Background="#323232">
+                
+            </StackPanel>
+            <Frame Grid.Column="1" Background="Aqua"></Frame>
+        </Grid>
+    </Grid>
+</Window>
