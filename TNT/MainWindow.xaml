@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TNT"
-        xmlns:tcpclient="clr-namespace:MossbauerLab.TinyTcpServer.Core.Client"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -16,6 +15,19 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
         >
+    <Window.Resources>
+        <Style TargetType="{x:Type StackPanel}" x:Key="sub">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Background" Value="#333"></Setter>
+            <Style.Triggers >
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Width" Value="120"></Setter>
+
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -25,7 +37,7 @@
             Grid.Row="0"
   Mode="Dark"
   Padding="0">
-            <StackPanel Background="#333">
+            <StackPanel Background="#333" HorizontalAlignment="Right" Margin="0,0,0.309,0" Width="793">
                 <DockPanel>
                     <materialDesign:PopupBox
                         Margin="0,0,10,0"
@@ -46,23 +58,27 @@
                     <StackPanel
       Orientation="Horizontal">
                         <ToggleButton
+                            HorizontalAlignment="Left"
                             
         Style="{DynamicResource MaterialDesignHamburgerToggleButton}"/>
-                       
+
                     </StackPanel>
                 </DockPanel>
             </StackPanel>
         </materialDesign:ColorZone>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions >
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="21.763"/>
+                <ColumnDefinition Width="8.481"/>
+                <ColumnDefinition Width="9.846"/>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0" Width="40"  Background="#323232">
-                
+            <StackPanel Grid.Column="0" Style="{StaticResource sub}" Grid.ColumnSpan="3" Margin="0,0,0.145,0">
             </StackPanel>
-            <Frame Grid.Column="1" Background="Aqua"></Frame>
+            <StackPanel Grid.Column="2" Grid.ColumnSpan="2" Margin="9.701,0,0.309,0">
+                <Frame Content="{Binding CurrentPage,Converter={local:PageConverter}}"></Frame>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>

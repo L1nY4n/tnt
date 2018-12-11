@@ -82,18 +82,19 @@ namespace TNT
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = this;
-            _items3 = CreateData();
-            TcpServer  tc = new TcpServer();
-            tc.test += updateUI;
-            tc.Start("0.0.0.0",6000);
-            tc.AddConnectionHandler(Guid.NewGuid(),new Action<TcpClientContext, Boolean>(handleConnet));
-            //tc.AddHandler(null,new Func<Byte[], TcpClientHandlerInfo, Byte[]>(Handle));
-            while (tc.ConnectedClients>0)
-            {
+            this.DataContext = new MainViewModel (this);
+            //this.DataContext = this;
+            //_items3 = CreateData();
+            //TcpServer  tc = new TcpServer();
+            //tc.test += updateUI;
+            //tc.Start("0.0.0.0",6000);
+            //tc.AddConnectionHandler(Guid.NewGuid(),new Action<TcpClientContext, Boolean>(handleConnet));
+            ////tc.AddHandler(null,new Func<Byte[], TcpClientHandlerInfo, Byte[]>(Handle));
+            //while (tc.ConnectedClients>0)
+            //{
                 
-            }
-            OnPropertyChanged();
+            //}
+            //OnPropertyChanged();
         }
 
       
